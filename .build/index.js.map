@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/log.ts", "../src/index.ts"],
+  "sourcesContent": ["import winston, { format, transports } from 'winston';\nimport colorize from 'json-colorizer';\n\nconst logFormat = format.printf(info => {\n    return `${info.timestamp} ${info.level}: ${info.message} ${\n        info.metadata && Object.keys(info.metadata).length > 0 ? colorize(JSON.stringify(info.metadata, null, 2)) : ''\n    } `;\n});\n\nconst logger = winston.createLogger({\n    level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',\n    format: format.combine(\n        format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),\n        format.metadata({ fillExcept: ['message', 'level', 'timestamp', 'label'] }),\n        winston.format.colorize(),\n    ),\n    transports: [\n        new transports.Console({\n            format: format.combine(logFormat),\n        }),\n    ],\n    exitOnError: false,\n});\n\nexport default logger;\n", "import logger from './log'\nlogger.info('hello world')\n"],
+  "mappings": "ohBAAA,MAA4C,sBAC5C,EAAqB,6BAEf,EAAY,SAAO,OAAO,GACrB,GAAG,EAAK,aAAa,EAAK,UAAU,EAAK,WAC5C,EAAK,UAAY,OAAO,KAAK,EAAK,UAAU,OAAS,EAAI,cAAS,KAAK,UAAU,EAAK,SAAU,KAAM,IAAM,OAI9G,EAAS,UAAQ,aAAa,CAChC,MAAO,QAAQ,IAAI,WAAa,aAAe,OAAS,QACxD,OAAQ,SAAO,QACX,SAAO,UAAU,CAAE,OAAQ,wBAC3B,SAAO,SAAS,CAAE,WAAY,CAAC,UAAW,QAAS,YAAa,WAChE,UAAQ,OAAO,YAEnB,WAAY,CACR,GAAI,cAAW,QAAQ,CACnB,OAAQ,SAAO,QAAQ,MAG/B,YAAa,KAGV,EAAQ,ECvBf,EAAO,KAAK",
+  "names": []
+}
