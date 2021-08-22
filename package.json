@@ -5,7 +5,8 @@
   "author": "Alexander van Trijffel <alexander@structura.ws>",
   "license": "MIT",
   "scripts": {
-    "build": "node esbuild.config.js"
+    "build": "node esbuild.config.js",
+    "serve": "nodemon"
   },
   "dependencies": {
     "json-colorizer": "2.2.2",
@@ -15,6 +16,8 @@
     "@tsconfig/node14": "1.0.1",
     "@types/node": "16.7.1",
     "esbuild": "0.12.22",
-    "esbuild-node-externals": "1.3.0"
+    "esbuild-node-externals": "1.3.0",
+    "nodemon": "2.0.12",
+    "typescript": "4.3.5"
   }
 }
