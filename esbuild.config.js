@@ -12,6 +12,7 @@ esbuild
     platform: 'node',
     sourcemap: true,
     target: 'node14',
-    plugins: [nodeExternalsPlugin()]
+    plugins: [nodeExternalsPlugin()],
+    watch: process.argv.includes('--watch')
   })
   .catch(() => process.exit(1))

@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "node esbuild.config.js",
-    "serve": "nodemon"
+    "serve": "(trap 'kill 0' SIGINT; yarn build --watch & nodemon)",
+    "serve:watchexec": "todo: build poc with watchexec instead of nodemon "
   },
   "dependencies": {
     "json-colorizer": "2.2.2",
