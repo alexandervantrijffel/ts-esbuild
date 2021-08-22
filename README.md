@@ -1,5 +1,5 @@
 # ts-esbuild
-esbuild for Typescript poc 
+[esbuild](https://esbuild.github.io) for Typescript poc 
 
 Build performance comparison:
 
